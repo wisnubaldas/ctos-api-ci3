@@ -1,24 +1,32 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Cont_Login extends CI_Controller 
+class Cont_Login extends MY_Controller 
 {
+	
 	function __construct()
     {
         parent::__construct();		
         $this->load->model(array('login_model'));
     }	
+	protected function middleware()
+    {
+        return array('api');
+    }
 
 	public function get_list_logindepartmen($EmployeeNumber)
 	{
-		$listhasil = $this->login_model->list_logindepartmen($EmployeeNumber);
-		// menjadikan objek menjadi JSON
-		$hasil = json_encode($listhasil);
+		echo json_encode(['dsdsdsd'=>'dasdasd']);
+		// exit();
+
+		// $listhasil = $this->login_model->list_logindepartmen($EmployeeNumber);
+		// // menjadikan objek menjadi JSON
+		// $hasil = json_encode($listhasil);
 		
-		// mengeluarkan JSON ke browser
-		header('HTTP/1.1: 200');
-		header('Status: 200');
-		header('Content-Length: '.strlen($hasil));
-        exit($hasil);
+		// // mengeluarkan JSON ke browser
+		// header('HTTP/1.1: 200');
+		// header('Status: 200');
+		// header('Content-Length: '.strlen($hasil));
+        // exit($hasil);
 	}
 	public function test($EmployeeNumber)
 	{
