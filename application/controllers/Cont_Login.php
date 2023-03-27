@@ -1,6 +1,8 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Cont_Login extends MY_Controller 
+use chriskacerguis\RestServer\RestController;
+
+class Cont_Login extends RestController 
 {
 	
 	function __construct()
@@ -13,20 +15,19 @@ class Cont_Login extends MY_Controller
         return array('api');
     }
 
-	public function get_list_logindepartmen($EmployeeNumber)
+	public function get_list_logindepartmen_get($EmployeeNumber)
 	{
-		echo json_encode(['dsdsdsd'=>'dasdasd']);
-		// exit();
-
-		// $listhasil = $this->login_model->list_logindepartmen($EmployeeNumber);
-		// // menjadikan objek menjadi JSON
-		// $hasil = json_encode($listhasil);
 		
-		// // mengeluarkan JSON ke browser
-		// header('HTTP/1.1: 200');
-		// header('Status: 200');
-		// header('Content-Length: '.strlen($hasil));
-        // exit($hasil);
+		$listhasil = $this->login_model->list_logindepartmen($EmployeeNumber);
+		$this->response( $listhasil, 200 );
+		// menjadikan objek menjadi JSON
+	// 	$hasil = json_encode($listhasil);
+		
+	// 	// mengeluarkan JSON ke browser
+	// 	header('HTTP/1.1: 200');
+	// 	header('Status: 200');
+	// 	header('Content-Length: '.strlen($hasil));
+ //        exit($hasil);
 	}
 	public function test($EmployeeNumber)
 	{

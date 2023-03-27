@@ -4,8 +4,9 @@
  * Email: davinder17s@gmail.com
  * Repository: https://github.com/davinder17s/codeigniter-middleware
  */
+use chriskacerguis\RestServer\RestController;
 
-class MY_Controller extends CI_Controller
+class MY_Controller extends RestController
 {
     protected $middlewares = array();
     public function __construct(){

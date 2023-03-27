@@ -17,10 +17,19 @@ class ApiMiddleware {
 
     public function run(){
         $header = $this->ci->input->request_headers();
-        // $this->roles = array('somehting', 'view', 'edit');
-        header('Content-Type: application/json');
-        header('Status: 200');
-        header('HTTP/1.1: 200');
-        // echo json_encode($header);
+        if (isset($header['Authorization'])) {
+            // $this->roles = array('somehting', 'view', 'edit');
+            header('Content-Type: application/json');
+            header('Status: 200');
+            header('HTTP/1.1: 200');
+            // echo json_encode($header);
+        }else{
+            header('Content-Type: application/json');
+            header('Status: 500');
+            header('HTTP/1.1: 500');
+            echo json_encode(['message'=>'Authorization needed']);
+            exit();
+        }
+        
     }
 }
