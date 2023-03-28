@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+include APPPATH.'/controllers/ApiController.php';
 
-class Cont_Manifest extends MX_Controller 
+class Cont_Manifest extends ApiController 
 {
 	function __construct()
     {
@@ -8,29 +9,18 @@ class Cont_Manifest extends MX_Controller
         $this->load->model(array('manifest_model'));
     }	
 
-	public function get_inward_manifest($AirlinesCode,$FlightNo,$dateflight)
+	public function get_inward_manifest_get($AirlinesCode,$FlightNo,$dateflight)
 	{
 		$listhasil = $this->manifest_model->inward_manifest($AirlinesCode,$FlightNo,$dateflight);
 		// menjadikan objek menjadi JSON
-		$hasil = json_encode($listhasil);
-		
-		// mengeluarkan JSON ke browser
-		header('HTTP/1.1: 200');
-		header('Status: 200');
-		header('Content-Length: '.strlen($hasil));
-        exit($hasil);
+		$this->response( $listhasil, 200 );
 	}
 	
-	public function get_user_reg()
+	public function get_user_reg_get()
 	{
 		$listhasil = $this->manifest_model->user_reg();
 		// menjadikan objek menjadi JSON
-		$hasil = json_encode($listhasil);		
-		// mengeluarkan JSON ke browser
-		header('HTTP/1.1: 200');
-		header('Status: 200');
-		header('Content-Length: '.strlen($hasil));
-        exit($hasil);
+		$this->response( $listhasil, 200 );
 	}
 	
 }
