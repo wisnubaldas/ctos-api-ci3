@@ -16,20 +16,21 @@ class ApiMiddleware {
     }
 
     public function run(){
-        $header = $this->ci->input->request_headers();
-        if (isset($header['Authorization'])) {
-            // $this->roles = array('somehting', 'view', 'edit');
-            header('Content-Type: application/json');
-            header('Status: 200');
-            header('HTTP/1.1: 200');
-            // echo json_encode($header);
-        }else{
-            header('Content-Type: application/json');
-            header('Status: 500');
-            header('HTTP/1.1: 500');
-            echo json_encode(['message'=>'Authorization needed']);
-            exit();
+
+        $headers = $this->ci->input->request_headers();
+
+        if (array_key_exists('Authorization', $headers) && !empty($headers['Authorization'])) {
+            //TODO: Change 'token_timeout' in application\config\jwt.php
+            $decodedToken = AUTHORIZATION::validateTimestamp($headers['Authorization']);
+
+            // return response if token is valid
+            if ($decodedToken != false) {
+                // $this->ci->set_response($decodedToken, 200);
+                return;
+            }
         }
+
+        return $this->ci->response(["Unauthorised"], 401);
         
     }
 }

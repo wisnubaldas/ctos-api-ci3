@@ -15,8 +15,8 @@ class Ekspor_model extends CI_Model
 		$this->db7->select('*');    
 		$this->db7->where('void=0');
 		$this->db7->where('Status=0');
-		$this->db7->from('eks_hostawb');
-		$query = $this->db7->get();
+		// $this->db7->from('eks_hostawb');
+		$query = $this->db7->get('eks_hostawb',10,3);
 		return $query->result();
 	}
 
