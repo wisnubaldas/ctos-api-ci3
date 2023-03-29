@@ -1,6 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+include APPPATH.'/controllers/ApiController.php';
 
-class Cont_Monitoring extends MX_Controller 
+class Cont_Monitoring extends ApiController 
 {
 	function __construct()
     {
@@ -8,17 +9,11 @@ class Cont_Monitoring extends MX_Controller
         $this->load->model(array('monitoring_model'));
     }	
 	
-	public function get_list_weighing_no_invoice()
+	public function get_list_weighing_no_invoice_get()
 	{
 		$listhasil = $this->monitoring_model->list_weighing_no_invoice();
 		// menjadikan objek menjadi JSON
-		$hasil = json_encode($listhasil);
-		
-		// mengeluarkan JSON ke browser
-		header('HTTP/1.1: 200');
-		header('Status: 200');
-		header('Content-Length: '.strlen($hasil));
-        exit($hasil);
+		$this->response( $listhasil, 200 );
 	}
 	
 	
