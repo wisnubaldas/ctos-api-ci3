@@ -9,7 +9,7 @@ class Monitoring_model extends CI_Model
 		$this->db7 = $this->load->database('rdwarehouse_jkt_read', TRUE);	
     }
 	
-	public function list_weighing_no_invoice();
+	public function list_weighing_no_invoice()
 	{
 		$this->db7->distinct();
 		$this->db7->select('*');		
