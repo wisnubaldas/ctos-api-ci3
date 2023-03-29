@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Imp_breakdownheader extends REST_Controller {
+class Imp_breakdownheader extends ApiController {
 	
 	function __construct()
 	{

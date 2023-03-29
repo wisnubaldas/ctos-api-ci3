@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Eks_storage extends REST_Controller {
+class Eks_storage extends ApiController {
 	
 	function __construct()
 	{
@@ -43,7 +43,7 @@ class Eks_storage extends REST_Controller {
 					'Remarks'			=> $this->put('Remarks'),
 					'DateEntry'			=> $this->put('DateEntry'),			
 					'TimeEntry'			=> $this->put('TimeEntry'),
-					'token'				=> $this->put('token')
+					'token'				=> $this->put('token'),
 					'noid'				=> $this->put('noid')
 					);
 		$this->db->where('noid', $noid);

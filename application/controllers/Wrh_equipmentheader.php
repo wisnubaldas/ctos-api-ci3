@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Wrh_equipmentheader extends REST_Controller {
+class Wrh_equipmentheader extends ApiController {
 	
 	function __construct()
 	{

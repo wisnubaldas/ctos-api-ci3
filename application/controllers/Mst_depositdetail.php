@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Mst_depositdetail extends REST_Controller {
+class Mst_depositdetail extends ApiController {
 	
 	function __construct()
 	{

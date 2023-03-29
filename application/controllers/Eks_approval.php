@@ -1,9 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Eks_approval extends REST_Controller {
+
+class Eks_approval extends ApiController {
 	
 	function __construct()
 	{

@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Eks_weighingvol extends REST_Controller {
+class Eks_weighingvol extends ApiController {
 	
 	private $db7;
 	function __construct()

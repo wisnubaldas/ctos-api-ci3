@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+include APPPATH.'/controllers/ApiController.php';
 
-require APPPATH . 'libraries/REST_Controller.php';
 
-class Eks_booking extends REST_Controller {
+class Eks_booking extends ApiController {
 	
 	function __construct()
 	{

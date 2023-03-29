@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Manifest_modul_detail extends REST_Controller {
+class Manifest_modul_detail extends ApiController {
 	
 	function __construct()
 	{

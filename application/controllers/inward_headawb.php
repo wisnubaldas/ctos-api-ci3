@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Inward_DetAWB extends REST_Controller {
+class Inward_DetAWB extends ApiController {
 	
 	function __construct()
 	{

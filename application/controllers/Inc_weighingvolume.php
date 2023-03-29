@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Inc_weighingvolume extends REST_Controller {
+class Inc_weighingvolume extends ApiController {
 	
 	function __construct()
 	{
@@ -34,7 +34,7 @@ class Inc_weighingvolume extends REST_Controller {
 					'WidthCargo'			=> $this->PUT('WidthCargo'),
 					'HighCargo'				=> $this->PUT('HighCargo'),
 					'VolumeCargo'			=> $this->PUT('VolumeCargo'),
-					'token'					=> $this->PUT('token');				
+					'token'					=> $this->PUT('token'),				
 					'_id'					=> $this->PUT('_id')
 					);
 		$this->db->where('_id', $_id);

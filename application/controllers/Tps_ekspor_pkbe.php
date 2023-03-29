@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Tps_ekspor_peb_npe extends REST_Controller {
+class Tps_ekspor_peb_npe extends ApiController {
 	
 	function __construct()
 	{

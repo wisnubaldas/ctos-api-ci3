@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Plp_batal extends REST_Controller {
+class Plp_batal extends ApiController {
 	
 	function __construct()
 	{

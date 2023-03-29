@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Inc_storage extends REST_Controller {
+class Inc_storage extends ApiController {
 	
 	function __construct()
 	{

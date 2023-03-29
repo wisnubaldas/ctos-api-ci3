@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Gate_imp_in_sys_lama extends REST_Controller {
+class Gate_imp_in_sys_lama extends ApiController {
 	
 	function __construct()
 	{

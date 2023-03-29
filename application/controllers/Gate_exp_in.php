@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require APPPATH . 'libraries/REST_Controller.php';
+include APPPATH.'/controllers/ApiController.php';
 
-class Gate_exp_in extends REST_Controller {
+class Gate_exp_in extends ApiController {
 	
 	function __construct()
 	{
