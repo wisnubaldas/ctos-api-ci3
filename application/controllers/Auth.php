@@ -8,20 +8,27 @@ class Auth extends RestController
      * URL: http://localhost/CodeIgniter-JWT-Sample/authtimeout/token
      * Method: GET
      */
+    public function __construct() {
+        parent::__construct();
+        $this->db = $this->load->database('rdlogin', TRUE);
+    }
     public function token_get()
     {
-        $tokenData = array();
-        $tokenData['id'] = 1; //TODO: Replace with data for token
-
-        /* Date helper
-        * https://www.codeigniter.com/user_guide/helpers/date_helper.html
-        * Added helper "date" in application\config\autoload.php line 92
-        * Notice - 'timestamp' is part of $tokenData
-        */
-        $tokenData['timestamp'] = now();
-
-        $output['token'] = AUTHORIZATION::generateToken($tokenData);
-        $this->set_response($output, 200);
+        $r = json_decode($this->input->raw_input_stream);
+        if(isset($r->name) && isset($r->password)){
+            $q = $this->db->from('loginpassword')->where('userID', $r->name)->get();
+            if($q->num_rows()){
+                $tokenData = array();
+                $tokenData['id'] = 1; //TODO: Replace with data for token
+                $tokenData['timestamp'] = now();
+                $output['token'] = AUTHORIZATION::generateToken($tokenData);
+                $this->set_response($output, 200);
+            }else{
+                $this->set_response(['message'=>'No user in database'], 200);
+            }
+        }else{
+            $this->set_response(['message'=>'Unauthorised'], 401);
+        }
     }
 
     /**
